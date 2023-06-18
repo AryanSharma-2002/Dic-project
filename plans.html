@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workout Plans</title>
+    <link rel="stylesheet" href="./css/plans.css" />
+  </head>
+  <body>
+    <div class="up bg-light-gray">
+      <nav class="nav-bar container-center">
+        <div class="nav-left">
+          <h1 class="logo lg-font">FT</h1>
+        </div>
+        <div class="nav-right">
+          <ul class="nav-items md-font text-gray">
+            <li class="item item-1"><a href="index.html">Home</a></li>
+            <li class="item item-2"><a href="dashboard.html">Dashboard</a></li>
+            <li class="item item-3"><a href="plans.html">Plans</a></li>
+            <li class="item item-4">
+              <a href="nutrition.html">Nutrition Tracking</a>
+            </li>
+            <li class="item item-7"><a href="login.html">Login</a></li>
+            <li class="item item-8"><a href="register.html">Register</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <header>
+      <h1>Workout Plans</h1>
+    </header>
+    <section class="workout-plan">
+      <h2>Beginner Full-Body Workout</h2>
+      <div class="workout-plan__image">
+        <div class="slider">
+          <img
+            src="./images/beg 1.jpg"
+            alt="image1"
+            class="img1 img img-active"
+          />
+          <img src="./images/beg 2.jpg" alt="Image 2" class="img1 img" />
+          <img src="./images/hiit 1.webp" alt="Image 3" class="img1 img" />
+        </div>
+        <div class="slider-nav">
+          <button
+            class="slider-nav__arrow slider-nav__prev"
+            onclick="slide(-1)"
+          >
+            &lt;
+          </button>
+          <button class="slider-nav__arrow slider-nav__next" onclick="slide(1)">
+            &gt;
+          </button>
+        </div>
+      </div>
+      <div class="workout-plan__content">
+        <p>
+          A beginner-friendly workout plan targeting all major muscle groups.
+        </p>
+        <h3>Instructions:</h3>
+        <ol>
+          <li>Squats: 3 sets of 12 reps</li>
+          <li>Push-ups: 3 sets of 10 reps</li>
+          <li>Lunges: 3 sets of 12 reps per leg</li>
+          <li>Dumbbell Shoulder Press: 3 sets of 10 reps</li>
+          <li>Plank: 3 sets of 30 seconds</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="workout-plan">
+      <h2>High-Intensity Interval Training (HIIT)</h2>
+      <div class="workout-plan__image">
+        <div class="slider">
+          <img
+            src="./images/hiit 1.webp"
+            alt="HIIT Workout"
+            class="img img-active img2"
+          />
+          <img src="./images/hiit4.png" alt="HIIT Workout" class="img img2" />
+          <img src="./images/hiit5.jpg" alt="HIIT Workout" class="img img2" />
+        </div>
+        <div class="slider-nav">
+          <button
+            class="slider-nav__arrow slider-nav__prev"
+            onclick="slide2(-1)"
+          >
+            &lt;
+          </button>
+          <button
+            class="slider-nav__arrow slider-nav__next"
+            onclick="slide2(1)"
+          >
+            &gt;
+          </button>
+        </div>
+      </div>
+      <div class="workout-plan__content">
+        <p>
+          An intense cardio workout plan to boost metabolism and burn calories.
+        </p>
+        <h3>Instructions:</h3>
+        <ol>
+          <li>Jumping Jacks: 3 sets of 30 seconds</li>
+          <li>Mountain Climbers: 3 sets of 30 seconds</li>
+          <li>Burpees: 3 sets of 10 reps</li>
+          <li>High Knees: 3 sets of 30 seconds</li>
+          <li>Bicycle Crunches: 3 sets of 12 reps per side</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="workout-plan">
+      <h2>Cardio Blast</h2>
+      <div class="workout-plan__image">
+        <div class="slider">
+          <img
+            src="./images/cardio 1.jpg"
+            alt="Cardio Blast"
+            class="img img-active img3"
+          />
+          <img src="./images/cardio 2.jpg" alt="Image 2" class="img img3" />
+          <img src="./images/cardio 3.jpg" alt="Image 3" class="img img3" />
+        </div>
+        <div class="slider-nav">
+          <button
+            class="slider-nav__arrow slider-nav__prev"
+            onclick="slide3(-1)"
+          >
+            &lt;
+          </button>
+          <button
+            class="slider-nav__arrow slider-nav__next"
+            onclick="slide3(1)"
+          >
+            &gt;
+          </button>
+        </div>
+      </div>
+      <div class="workout-plan__content">
+        <p>
+          A high-intensity cardio workout to improve endurance and burn
+          calories.
+        </p>
+        <h3>Instructions:</h3>
+        <ol>
+          <li>Jumping Jacks: 3 sets of 30 seconds</li>
+          <li>High Knees: 3 sets of 30 seconds</li>
+          <li>Mountain Climbers: 3 sets of 30 seconds</li>
+          <li>Burpees: 3 sets of 10 reps</li>
+          <li>Running: 20 minutes</li>
+        </ol>
+      </div>
+    </section>
+
+    <script>
+      var slideIndex = 0;
+      showSlide(slideIndex);
+
+      function slide(n) {
+        showSlide((slideIndex += n));
+      }
+
+      function showSlide(n) {
+        var slides = document.getElementsByClassName("img1");
+        console.log(slides);
+        if (n >= 3) {
+          slideIndex = 0;
+        }
+        if (n < 0) {
+          slideIndex = 2;
+        }
+        for (var i = 0; i < slides.length; i++) {
+          slides[i].classList.remove("img-active");
+        }
+        slides[slideIndex].classList.add("img-active");
+      }
+
+      var slideIndex2 = 0;
+      showSlide2(slideIndex2);
+
+      function slide2(n) {
+        showSlide2((slideIndex2 += n));
+      }
+
+      function showSlide2(n) {
+        var slides = document.getElementsByClassName("img2");
+        console.log(slides);
+        if (n >= 3) {
+          slideIndex2 = 0;
+        }
+        if (n < 0) {
+          slideIndex2 = 2;
+        }
+        for (var i = 0; i < 3; i++) {
+          slides[i].classList.remove("img-active");
+        }
+        slides[slideIndex2].classList.add("img-active");
+      }
+
+      var slideIndex3 = 0;
+      showSlide3(slideIndex3);
+
+      function slide3(n) {
+        showSlide3((slideIndex3 += n));
+      }
+
+      function showSlide3(n) {
+        var slides = document.getElementsByClassName("img3");
+        console.log(slides);
+        if (n >= 3) {
+          slideIndex3 = 0;
+        }
+        if (n < 0) {
+          slideIndex3 = 2;
+        }
+        for (var i = 0; i < 3; i++) {
+          slides[i].classList.remove("img-active");
+        }
+        slides[slideIndex3].classList.add("img-active");
+      }
+    </script>
+  </body>
+</html>

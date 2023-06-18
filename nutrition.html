@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nutrition Tracking Page</title>
+    <link rel="stylesheet" type="text/css" href="./css/nutrition.css" />
+    <style></style>
+  </head>
+  <body>
+    <div class="up bg-light-gray">
+      <nav class="nav-bar container-center">
+        <div class="nav-left">
+          <h1 class="logo lg-font">FT</h1>
+        </div>
+        <div class="nav-right">
+          <ul class="nav-items md-font text-gray">
+            <li class="item item-1"><a href="index.html">Home</a></li>
+            <li class="item item-2"><a href="dashboard.html">Dashboard</a></li>
+            <li class="item item-3"><a href="plans.html">Plans</a></li>
+            <li class="item item-4">
+              <a href="nutrition.html">Nutrition Tracking</a>
+            </li>
+            <li class="item item-7"><a href="login.html">Login</a></li>
+            <li class="item item-8"><a href="register.html">Register</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <header>
+      <h1>Nutrition Tracking Page</h1>
+    </header>
+
+    <div class="container">
+      <div class="current-date"></div>
+      <div class="current-time"></div>
+
+      <h2>Weekly Nutrition Intake</h2>
+
+      <div class="day">
+        <h3>Monday</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Meal</th>
+              <th>Food</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Breakfast</td>
+              <td>Oatmeal, Banana, Almond Milk</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+            <tr>
+              <td>Lunch</td>
+              <td>Grilled Chicken, Brown Rice, Steamed Broccoli</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+            <tr>
+              <td>Dinner</td>
+              <td>Salmon, Quinoa, Mixed Vegetables</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+            <tr>
+              <td>Snacks</td>
+              <td>Apple, Almonds</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="add-meal-container">
+          <input type="text" placeholder="Meal" />
+          <input type="text" placeholder="Food" />
+          <button class="add-meal">Add</button>
+        </div>
+      </div>
+
+      <div class="day">
+        <h3>Tuesday</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Meal</th>
+              <th>Food</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Breakfast</td>
+              <td>Yogurt, Berries, Granola</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+            <tr>
+              <td>Lunch</td>
+              <td>Turkey Sandwich, Mixed Greens, Avocado</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+            <tr>
+              <td>Dinner</td>
+              <td>Pasta with Tomato Sauce, Spinach Salad</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+            <tr>
+              <td>Snacks</td>
+              <td>Grapes, String Cheese</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="add-meal-container">
+          <input type="text" placeholder="Meal" />
+          <input type="text" placeholder="Food" />
+          <button class="add-meal">Add</button>
+        </div>
+      </div>
+
+      <div class="day">
+        <h3>Wednesday</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Meal</th>
+              <th>Food</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Breakfast</td>
+              <td>Scrambled Eggs, Whole Wheat Toast</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+            <tr>
+              <td>Lunch</td>
+              <td>Quinoa Salad, Grilled Vegetables</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+            <tr>
+              <td>Dinner</td>
+              <td>Grilled Shrimp, Brown Rice, Asparagus</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+            <tr>
+              <td>Snacks</td>
+              <td>Trail Mix, Greek Yogurt</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="add-meal-container">
+          <input type="text" placeholder="Meal" />
+          <input type="text" placeholder="Food" />
+          <button class="add-meal">Add</button>
+        </div>
+      </div>
+      <div class="day">
+        <h3>Thursday</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Meal</th>
+              <th>Food</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Breakfast</td>
+              <td>Smoothie Bowl, Mixed Berries</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+            <tr>
+              <td>Lunch</td>
+              <td>Grilled Tofu, Quinoa, Steamed Veggies</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+            <tr>
+              <td>Dinner</td>
+              <td>Chicken Stir-Fry, Brown Rice</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+            <tr>
+              <td>Snacks</td>
+              <td>Cucumber Slices, Hummus</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="add-meal-container">
+          <input type="text" placeholder="Meal" />
+          <input type="text" placeholder="Food" />
+          <button class="add-meal">Add</button>
+        </div>
+      </div>
+
+      <div class="day">
+        <h3>Friday</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Meal</th>
+              <th>Food</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Breakfast</td>
+              <td>Avocado Toast, Fried Egg</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+            <tr>
+              <td>Lunch</td>
+              <td>Chicken Salad, Mixed Greens, Tomatoes</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+            <tr>
+              <td>Dinner</td>
+              <td>Salmon, Sweet Potato, Steamed Asparagus</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+            <tr>
+              <td>Snacks</td>
+              <td>Yogurt, Berries</td>
+              <td class="delete-meal">
+                <img src="./images/delete.webp" class="delete" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="add-meal-container">
+          <input type="text" placeholder="Meal" />
+          <input type="text" placeholder="Food" />
+          <button class="add-meal">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("body").hide().fadeIn(1000);
+
+        updateDateTime();
+
+        $(".add-meal").click(function () {
+          var mealInput = $(this).siblings("input[placeholder='Meal']");
+          var foodInput = $(this).siblings("input[placeholder='Food']");
+          var mealName = mealInput.val();
+          var foodName = foodInput.val();
+
+          if (mealName && foodName) {
+            var newRow =
+              "<tr><td>" +
+              mealName +
+              "</td><td>" +
+              foodName +
+              '</td><td class="delete-meal"><img src="./images/delete.webp" class="delete" /></td></tr>';
+            $(this).closest(".day").find("tbody").append(newRow);
+            mealInput.val("");
+            foodInput.val("");
+          }
+        });
+
+        $(".day").on("click", ".delete-meal", function () {
+          var row = $(this).closest("tr");
+          row.fadeOut(500, function () {
+            row.remove();
+          });
+        });
+
+        function updateDateTime() {
+          var date = new Date();
+          var options = { weekday: "long", month: "long", day: "numeric" };
+          var formattedDate = date.toLocaleDateString("en-US", options);
+          var formattedTime = date.toLocaleTimeString("en-US");
+          $(".current-date").text("Today is " + formattedDate);
+          $(".current-time").text("Current time is " + formattedTime);
+          setTimeout(updateDateTime, 1000);
+        }
+      });
+    </script>
+  </body>
+</html>

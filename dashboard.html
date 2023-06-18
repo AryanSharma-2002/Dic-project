@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./css/dashboard.css" />
+  </head>
+  <body>
+    <div class="up bg-light-gray">
+      <nav class="nav-bar container-center">
+        <div class="nav-left">
+          <h1 class="logo lg-font">FT</h1>
+        </div>
+        <div class="nav-right">
+          <ul class="nav-items md-font text-gray">
+            <li class="item item-1"><a href="index.html">Home</a></li>
+            <li class="item item-2"><a href="dashboard.html">Dashboard</a></li>
+            <li class="item item-3"><a href="plans.html">Plans</a></li>
+            <li class="item item-4">
+              <a href="nutrition.html">Nutrition Tracking</a>
+            </li>
+            <li class="item item-7"><a href="login.html">Login</a></li>
+            <li class="item item-8"><a href="register.html">Register</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="frame-container">
+      <div class="frame">
+        <div class="center">
+          <div class="headline">
+            <div class="small">your daily</div>
+            progress
+          </div>
+          <div class="circle-big">
+            <div class="text">
+              2758
+              <div class="small">kcal</div>
+            </div>
+            <svg>
+              <circle class="bg" cx="57" cy="57" r="52" />
+              <circle class="progress" cx="57" cy="57" r="52" />
+            </svg>
+          </div>
+          <div class="circles-small">
+            <div class="circle-small">
+              <div class="text">
+                8563
+                <div class="small">steps</div>
+              </div>
+              <svg>
+                <circle class="bg" cx="40" cy="40" r="37" />
+                <circle class="progress one" cx="40" cy="40" r="37" />
+              </svg>
+            </div>
+            <div class="circle-small">
+              <div class="text">
+                6,2
+                <div class="small">km</div>
+              </div>
+              <svg>
+                <circle class="bg" cx="40" cy="40" r="37" />
+                <circle class="progress two" cx="40" cy="40" r="37" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <h2>Track Your Fitness Activities</h2>
+      <form id="activity-form">
+        <label for="activity-type">Activity Type:</label>
+        <select id="activity-type">
+          <option value="running">Running</option>
+          <option value="cycling">Cycling</option>
+          <option value="weightlifting">Weightlifting</option>
+        </select>
+
+        <label for="duration">Duration (minutes):</label>
+        <input type="number" id="duration" name="duration" required />
+
+        <label for="distance">Distance (miles):</label>
+        <input type="number" id="distance" name="distance" />
+
+        <label for="sets">Sets:</label>
+        <input type="number" id="sets" name="sets" />
+
+        <button type="submit">Track Activity</button>
+      </form>
+    </section>
+
+    <section id="activity-entries">
+      <table>
+        <thead>
+          <tr>
+            <th>Serial No.</th>
+            <th>Activity Type</th>
+            <th>Duration</th>
+            <th>Distance</th>
+            <th>Sets</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <script>
+      $(document).ready(function () {
+        var entryCounter = 1;
+
+        $("#activity-form").submit(function (e) {
+          e.preventDefault();
+
+          var activityType = $("#activity-type").val();
+          var duration = $("#duration").val();
+          var distance = $("#distance").val();
+          var sets = $("#sets").val();
+
+          var row = $("<tr></tr>");
+          row.attr("data-entry-id", "entry-" + entryCounter);
+
+          row.append("<td>" + entryCounter + "</td>");
+          row.append("<td>" + activityType + "</td>");
+          row.append("<td>" + duration + " minutes</td>");
+          row.append("<td>" + distance + " miles</td>");
+          row.append("<td>" + sets + "</td>");
+
+          var actionsCell = $("<td></td>");
+          var editButton = $('<button class="edit-button">Edit</button>');
+          var deleteButton = $('<button class="delete-button">Delete</button>');
+
+          editButton.click(function () {
+            var row = $(this).closest("tr");
+            var entryId = row.data("entry-id");
+            var activityType = row.find("td:eq(1)").text();
+            var duration = row.find("td:eq(2)").text().replace(" minutes", "");
+            var distance = row.find("td:eq(3)").text().replace(" miles", "");
+            var sets = row.find("td:eq(4)").text();
+
+            $("#activity-type").val(activityType);
+            $("#duration").val(duration);
+            $("#distance").val(distance);
+            $("#sets").val(sets);
+
+            row.remove();
+          });
+
+          deleteButton.click(function () {
+            var row = $(this).closest("tr");
+            var entryId = row.data("entry-id");
+            row.remove();
+          });
+
+          actionsCell.append(editButton);
+          actionsCell.append(deleteButton);
+          row.append(actionsCell);
+
+          $("#activity-entries tbody").append(row);
+
+          $("#activity-type").val("");
+          $("#duration").val("");
+          $("#distance").val("");
+          $("#sets").val("");
+
+          entryCounter++;
+        });
+      });
+    </script>
+  </body>
+</html>

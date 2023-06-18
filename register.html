@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./css/register.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="register">
+      <section class="contact-us" id="contact">
+        <div class="container-center demo-wrap">
+          <form
+            action="/register"
+            method="POST"
+            class="contact-form"
+            id="register-form"
+          >
+            <h1 class="heading-contact">Register Here</h1>
+            <div class="all-inputs">
+              <input
+                type="text"
+                name="fname"
+                id="fname"
+                placeholder="First Name"
+                required
+              />
+              <input
+                type="text"
+                name="lname"
+                id="lname"
+                placeholder="Second Name"
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                required
+              />
+              <input
+                type="text"
+                name="mobile"
+                id="mobile"
+                placeholder="Type your mobile here"
+                required
+              />
+              <input type="date" name="dob" id="dob" required />
+              <div class="password-wrapper">
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="Enter password"
+                  required
+                />
+                <span class="eye-icon" id="password-toggle">
+                  <img
+                    src="./images/invisible.png"
+                    alt="Toggle Password Visibility"
+                    width="20"
+                    height="20"
+                  />
+                </span>
+              </div>
+              <div class="password-wrapper">
+                <input
+                  type="password"
+                  name="confPassword"
+                  id="confPassword"
+                  placeholder="Confirm your password"
+                  required
+                />
+                <span class="eye-icon" id="confPassword-toggle">
+                  <img
+                    src="./images/invisible.png"
+                    alt="Toggle Password Visibility"
+                    width="20"
+                    height="20"
+                  />
+                </span>
+              </div>
+            </div>
+            <input type="submit" value="submit" class="btn bg-green" />
+            <div class="sign-in-container">
+              <p class="sign-in-heading">Already Registered?</p>
+              <a href="login.html" class="sign-in-link">Sign In</a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#register-form").submit(function (event) {
+          event.preventDefault();
+
+          if (validateForm()) {
+            alert("registered successfully");
+          }
+        });
+
+        function validateForm() {
+          var fname = $("#fname").val();
+          var lname = $("#lname").val();
+          var email = $("#email").val();
+          var mobile = $("#mobile").val();
+          var dob = $("#dob").val();
+          var password = $("#password").val();
+          var confPassword = $("#confPassword").val();
+
+          if (
+            fname === "" ||
+            lname === "" ||
+            email === "" ||
+            mobile === "" ||
+            dob === "" ||
+            password === "" ||
+            confPassword === ""
+          ) {
+            alert("Please fill in all fields.");
+            return false;
+          }
+
+          if (!validateEmail(email)) {
+            alert("Please enter a valid email address.");
+            return false;
+          }
+
+          if (!validateMobile(mobile)) {
+            alert("Please enter a valid mobile number.");
+            return false;
+          }
+
+          if (!validatePassword(password)) {
+            alert(
+              "Please enter a password with at least 8 characters, including at least one numeric, lowercase, uppercase alphabet, and special character."
+            );
+            return false;
+          }
+
+          if (password !== confPassword) {
+            alert("Password and confirm password do not match.");
+            return false;
+          }
+
+          return true;
+        }
+
+        function validateEmail(email) {
+          var re = /^\w+([\.-]?\w+)*@(?:gmail.com|\w+(?:\.\w+)+)$/;
+          return re.test(email);
+        }
+
+        function validateMobile(mobile) {
+          var re = /^\d{10}$/;
+          return re.test(mobile);
+        }
+
+        function validatePassword(password) {
+          var re =
+            /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
+          return re.test(password);
+        }
+
+        $("#password-toggle").click(function () {
+          var passwordInput = $("#password");
+          var passwordToggle = $(this);
+
+          if (passwordInput.attr("type") === "password") {
+            passwordInput.attr("type", "text");
+            passwordToggle.find("img").attr("src", "./images/eye.png");
+          } else {
+            passwordInput.attr("type", "password");
+            passwordToggle.find("img").attr("src", "./images/invisible.png");
+          }
+        });
+
+        $("#confPassword-toggle").click(function () {
+          var confPasswordInput = $("#confPassword");
+          var confPasswordToggle = $(this);
+
+          if (confPasswordInput.attr("type") === "password") {
+            confPasswordInput.attr("type", "text");
+            confPasswordToggle.find("img").attr("src", "./images/eye.png");
+          } else {
+            confPasswordInput.attr("type", "password");
+            confPasswordToggle
+              .find("img")
+              .attr("src", "./images/invisible.png");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
